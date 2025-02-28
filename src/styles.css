@@ -159,13 +159,16 @@ a {
 }
 
 .window-content {
-  background-color: white;
   flex-grow: 1;
+  overflow-y: scroll;
+  padding: 0.5rem;
+}
+
+.window-content.icons {
   display: grid;
   grid-template-columns: repeat(auto-fit, 175px);
   grid-auto-rows: 200px;
-  overflow-y: scroll;
-  padding: 0.5rem;
+  background-color: white;
 }
 
 .icon {
@@ -194,7 +197,7 @@ a {
   left: 6rem;
 }
 
-.window-form {
+.window-content.form {
   background-color: silver;
   flex-grow: 1;
 }
