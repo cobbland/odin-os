@@ -217,6 +217,11 @@ a {
   align-items: center;
 }
 
+.icon-image {
+  height: 100px;
+  margin-bottom: 0.5rem;
+}
+
 .icon-title {
   border: 2px solid #00000000;
   padding: 0 0.5rem;
