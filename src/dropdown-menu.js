@@ -5,7 +5,12 @@ function toggleOpen(thing) {
     thing.classList.toggle('open')
 }
 
+function toggleActive(thing) {
+    thing.classList.toggle('active');
+}
+
 let savedMenu;
+let savedWindow = windows[0];
 
 document.documentElement.addEventListener('click', (button) => {
 
@@ -38,6 +43,7 @@ document.documentElement.addEventListener('click', (button) => {
     let currentWindow = windows.filter((word) => button.target.closest('.window') === word);
     if (button.target.classList.contains('close')) {
         toggleOpen(currentWindow[0]);
+        toggleActive(savedWindow);
     }
 
     // New window handling
