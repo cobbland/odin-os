@@ -1,7 +1,8 @@
 const dropdownMenus = Array.from(document.querySelectorAll('.dropdown-menu'));
+const windows = Array.from(document.querySelectorAll('.window'));
 
-function toggleOpen(menu) {
-    menu.classList.toggle('open')
+function toggleOpen(thing) {
+    thing.classList.toggle('open')
 }
 
 let savedMenu;
@@ -32,4 +33,15 @@ document.documentElement.addEventListener('click', (button) => {
     ) {
         toggleOpen(savedMenu);
     }
+
+    // Close button handling
+    let currentWindow = windows.filter((word) => button.target.closest('.window') === word);
+    if (button.target.classList.contains('close')) {
+        toggleOpen(currentWindow[0]);
+    }
+
+    // New window handling
+
+    // Switch window handling
+
 })

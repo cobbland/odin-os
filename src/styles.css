@@ -17,7 +17,6 @@ body {
 body {
   line-height: 1.5; /* This requires customizing the line height for larger text. */
   font-size: 1.5rem;
-  padding: 3rem;
   background-color: teal;
   background-image: url(./img/pyramid.bmp);
   background-repeat: repeat;
@@ -33,10 +32,15 @@ input, button, textarea, select {
   font: inherit;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .desktop {
-  height: 800px;
+  height: 1200px;
   width: 800px;
-  border: 1px solid silver;
+  border: 0px solid silver;
   position: relative;
 }
 
@@ -50,6 +54,8 @@ input, button, textarea, select {
   display: none;
   flex-direction: column;
   pointer-events: none;
+  top: 3rem;
+  left: 3rem;
 }
 
 .window.open {
@@ -129,6 +135,7 @@ input, button, textarea, select {
   border: 2px solid black;
   width: max-content;
   display: none;
+  z-index: 1;
 }
 
 .dropdown-menu.open .menu-dropdown {
@@ -137,6 +144,7 @@ input, button, textarea, select {
 
 .menu-item {
   padding: 0 0.5rem;
+  color: black;
 }
 
 .menu-item:hover {
@@ -153,10 +161,40 @@ input, button, textarea, select {
 .window-content {
   background-color: white;
   flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 175px);
+  grid-auto-rows: 200px;
+  overflow-y: scroll;
+  padding: 0.5rem;
+}
+
+.icon {
+  border: 2px dashed navy;
+  padding: 0.5rem;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.icon:focus {
+  border: 2px solid navy;
+  background-color: navy;
+  color: white;
 }
 
 
 .status-bar {
   border-top: 2px solid black;
   padding-left: 0.5rem;
+}
+
+#window-2 {
+  top: 6rem;
+  left: 6rem;
+}
+
+.window-form {
+  background-color: silver;
+  flex-grow: 1;
 }
