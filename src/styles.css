@@ -1,3 +1,8 @@
+:root {
+  --window-position-top: 4rem;
+  --window-position-left: 3rem;
+}
+
 *,
 *::before,
 *::after {
@@ -5,7 +10,7 @@
 }
 
 * {
-  margin: 0;
+  margin: 0; 
 }
 
 html,
@@ -39,9 +44,28 @@ a {
 
 .desktop {
   height: 1200px;
-  width: 800px;
+  width: 100%;
+  min-width: 800px;
   border: 0px solid silver;
   position: relative;
+}
+
+.title-bar {
+  background-color: silver;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.os-name {
+  flex-grow: 1;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+}
+
+.time {
+  border-left: 2px solid black;
+  padding: 0.2rem;
 }
 
 .window {
@@ -54,15 +78,15 @@ a {
   display: none;
   flex-direction: column;
   pointer-events: none;
-  top: 3rem;
-  left: 3rem;
+  top: var(--window-position-top);
+  left: var(--window-position-left)
 }
 
 .window.open {
   display: flex;
 }
 
-.window .top-bar {
+.top-bar {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid black;
@@ -80,7 +104,7 @@ a {
   background-color: silver;
 }
 
-.window .window-title {
+.window-title {
   flex-grow: 1;
   text-align: center;
   font-size: 1.2em;
@@ -92,7 +116,7 @@ a {
   font-weight: bold;
 }
 
-.window .window-controls {
+.window-controls {
   height: 100%;
   aspect-ratio: 1 / 1;
   flex-shrink: 0;
@@ -102,40 +126,43 @@ a {
   align-items: center;
 }
 
-.window .window-controls div {
+.window-controls div {
   flex-grow: 1;
   text-align: center;
 }
 
-.window .window-controls:hover,
+.window-controls:hover,
 .dropdown-menu.open .menu-title,
 .menu-title:hover {
   background-color: #00000033;
   cursor: pointer;
 }
 
-.window .menu-bar {
+.menu-bar {
   display: flex;
   border-bottom: 2px solid black;
-  padding-left: 0.5rem;
 }
 
-.window .dropdown-menu {
+.dropdown-menu {
   position: relative;
 }
 
-.window .menu-title {
+.menu-title {
   font-weight: bold;
   padding: 0 0.5rem;
 }
 
-.window .menu-dropdown {
+.menu-dropdown {
   position: absolute;
   background-color: white;
   border: 2px solid black;
   width: max-content;
   display: none;
   z-index: 1;
+}
+
+.dropdown-menu:first-child .menu-dropdown {
+  border-left: none;
 }
 
 .dropdown-menu.open .menu-dropdown {
@@ -165,10 +192,17 @@ a {
 }
 
 .window-content.icons {
+  background-color: white;
+}
+
+.desktop-icons {
+  padding: 0.5rem;
+}
+
+.icons {
   display: grid;
   grid-template-columns: repeat(auto-fit, 175px);
   grid-auto-rows: 200px;
-  background-color: white;
 }
 
 .icon {
@@ -193,8 +227,8 @@ a {
 }
 
 #window-2 {
-  top: 6rem;
-  left: 6rem;
+  top: calc(var(--window-position-top) + 3rem);
+  left: calc(var(--window-position-left) + 2rem);
 }
 
 .window-content.form {
