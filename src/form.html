@@ -1,53 +1,67 @@
 <style>
 
-input[type="email"] {
-  appearance: none;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: max-content;
+    padding: 1rem;
+  }
 
-  width: 100%;
-  border: 1px solid #333;
-  margin: 0;
+  form > div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5rem;
+    height: 2em;
+  }
 
-  font-family: inherit;
-  font-size: 90%;
+  form > div > label {
+    text-align: right;
+  }
 
-  box-sizing: border-box;
-}
+  form .error-message {
+    text-align: right;
+    color: red;
+  }
 
-/* invalid fields */
-input:invalid {
-  border-color: #900;
-  background-color: #fdd;
-}
-
-input:focus:invalid {
-  outline: none;
-}
-
-/* error message styles */
-.error {
-  width: 100%;
-  padding: 0;
-
-  font-size: 80%;
-  color: white;
-  background-color: #900;
-  border-radius: 0 0 5px 5px;
-
-  box-sizing: border-box;
-}
-
-.error.active {
-  padding: 0.3em;
-}
 </style>
 
-<form novalidate>
-    <p style="display: block;">
-      <label for="mail">
-        <span>Please enter an email address:</span>
-        <input type="email" id="mail" name="mail" required minlength="8" />
-        <span class="error" aria-live="polite"></span>
-      </label>
-    </p>
-    <button>Submit</button>
-  </form>
+<form action="" novalidate>
+
+  <div>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+  </div>
+
+  <div>
+    <label for="country">Country</label>
+    <select name="country" id="country">
+      <option value="canada">Canada</option>
+      <option value="mexico">Mexico</option>
+      <option value="united-states">United States</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="postal-code">Postal Code</label>
+    <input type="tel" name="postal-code" id="postal-code">
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input type="text" name="password" id="password">
+  </div>
+
+  <div>
+    <label for="confirm-password">Confirm Password</label>
+    <input type="text" name="confirm-password" id="confirm-password">
+  </div>
+
+  <div>
+    <p></p>
+    <button type="submit">Submit</button>
+  </div>
+
+  <p class="error-message">Error Message</p>
+
+</form>
