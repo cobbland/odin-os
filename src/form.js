@@ -33,26 +33,37 @@ function isFormValid() {
     }
 }
 
+function makeInvalid(element) {
+    element.classList.add('invalid');
+}
+
+function makeValid(element) {
+    element.classList.remove('invalid');
+}
+
 // On the following validity functions, be sure to check data type, right?
 function isEmailValid(email) {
-    console.log(email.value)
     // Check if email is valid
     // Return true valid
     // Otherwise return false
     if (email.value === '') {
-        addErrorMessage('You must enter an email.')
+        addErrorMessage('You must enter an email.');
+        makeInvalid(email);
         return false;
     }
 }
 
 function isCountryValid(country) {
+    console.log(country)
     if (country.value === 'canada' ||
         country.value === 'mexico' ||
         country.value === 'united-states'
     ) {
+        makeValid(country);
         return true;
     } else if (country.value === 'blank') {
-        addErrorMessage('You must choose a country.')
+        addErrorMessage('You must choose a country.');
+        makeInvalid(country);
         return false;
     }
 }
@@ -62,7 +73,8 @@ function isPostalCodeValid(country, postalCode) {
     // Return true valid
     // Otherwise return false
     if (postalCode.value === '') {
-        addErrorMessage('You must enter a postal code.')
+        addErrorMessage('You must enter a postal code.');
+        makeInvalid(postalCode);
         return false;
     }
 }
@@ -72,7 +84,8 @@ function isPasswordValid(password) {
     // Return true valid
     // Otherwise return false
     if (password.value === '') {
-        addErrorMessage('You must enter a password.')
+        addErrorMessage('You must enter a password.');
+        makeInvalid(password);
         return false;
     }
 }
@@ -82,7 +95,8 @@ function isConfirmPasswordValid(password, confirmPassword) {
     // Return true valid
     // Otherwise return false
     if (confirmPassword.value === '') {
-        addErrorMessage('You must confirm your password.')
+        addErrorMessage('You must confirm your password.');
+        makeInvalid(confirmPassword);
         return false;
     }
 }
