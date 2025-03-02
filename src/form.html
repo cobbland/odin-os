@@ -20,8 +20,14 @@
   }
 
   form .error-message {
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     color: red;
+  }
+
+  form .error-message.thumbs-up {
+    color: teal;
   }
 
 </style>
@@ -36,6 +42,7 @@
   <div>
     <label for="country">Country</label>
     <select name="country" id="country">
+      <option value="blank"></option>
       <option value="canada">Canada</option>
       <option value="mexico">Mexico</option>
       <option value="united-states">United States</option>
@@ -59,9 +66,11 @@
 
   <div>
     <p></p>
-    <button type="submit">Submit</button>
+    <button type="submit" class="submit-button">Submit</button>
   </div>
 
-  <p class="error-message">Error Message</p>
+  <div class="error-message">
+    <!-- <p>Error Message</p> -->
+  </div>
 
 </form>
