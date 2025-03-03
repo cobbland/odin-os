@@ -10,7 +10,7 @@
 }
 
 * {
-  margin: 0; 
+  margin: 0;
 }
 
 html,
@@ -28,12 +28,19 @@ body {
   position: relative;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%; /* Use `max-width: revert;` if an image is meant to overflow */
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -84,7 +91,7 @@ a {
   flex-direction: column;
   pointer-events: none;
   top: var(--window-position-top);
-  left: var(--window-position-left)
+  left: var(--window-position-left);
 }
 
 .window.open {
@@ -237,7 +244,6 @@ a {
   background-color: navy;
   color: white;
 }
-
 
 .status-bar {
   border-top: 2px solid black;

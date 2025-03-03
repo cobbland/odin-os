@@ -1,4 +1,4 @@
 import "./styles.css";
-import './dropdown-menu';
-import './form';
-import './time'
+import "./dropdown-menu";
+import "./form";
+import "./time";
