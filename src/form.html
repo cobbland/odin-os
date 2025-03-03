@@ -19,6 +19,10 @@
     text-align: right;
   }
 
+  form > div > .valid {
+    border: 2px solid teal;
+  }
+
   form > div > .invalid {
     border: 2px solid red;
   }
@@ -28,6 +32,12 @@
     flex-direction: column;
     gap: 0.5rem;
     color: red;
+    width: max-content;
+    max-width: 570px;
+  }
+
+  form .error-message > p {
+    
   }
 
   form .error-message.thumbs-up {
@@ -46,7 +56,7 @@
   <div>
     <label for="country">Country</label>
     <select name="country" id="country">
-      <option value="blank"></option>
+      <option value=""></option>
       <option value="canada">Canada</option>
       <option value="mexico">Mexico</option>
       <option value="united-states">United States</option>
@@ -60,12 +70,12 @@
 
   <div>
     <label for="password">Password</label>
-    <input type="text" name="password" id="password">
+    <input type="password" name="password" id="password">
   </div>
 
   <div>
     <label for="confirm-password">Confirm Password</label>
-    <input type="text" name="confirm-password" id="confirm-password">
+    <input type="password" name="confirm-password" id="confirm-password">
   </div>
 
   <div>
