@@ -1,30 +1,5 @@
 import APIPlayHTML from "./api-play.html";
-
-class Window {
-
-    constructor(windowID) {
-        this.windowID = windowID;
-        this.windowTitle = document.querySelector(`#${this.windowID} .window-title`);
-        this.windowContent = document.querySelector(`#${this.windowID} .window-content`);
-    }
-    
-    setWindowTitle(title) {
-        if (this.windowTitle) {
-            this.windowTitle.innerText = title;
-        } else {
-            console.error(`DOM element "#${this.windowID} .window-title" not found`);
-        }
-    }
-
-    setWindowContent(content) {
-        if (this.windowContent) {
-            this.windowContent.innerHTML = content;
-        } else {
-            console.error(`DOM element "#${this.windowID} .window-content" not found`);
-        }
-    }
-
-}
+import { Window } from "./window";
 
 const myAPIWindow = new Window('window-2');
 myAPIWindow.setWindowTitle('Playing with APIs');
@@ -32,29 +7,26 @@ myAPIWindow.setWindowContent(APIPlayHTML);
 
 const img = document.querySelector('.gif');
 
-let gifSearch = 'waiting';
+let gifGIF = 'waiting';
 
-let weatherLocation = 'ohio';
+let weatherLocation;
 
-const newGIF = async function() {
-        fetch(
-        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${weatherLocation}?key=MBK26J9HC5S79E2LG3RTL4R2W`,
-        {mode: 'cors'}
-    ).then(function(response) {
-        return response.json();
-    }).then(function(response) {
-        gifSearch = response.days[0].conditions
-    }).catch(() => gifSearch = 'try again')
-    .then(function() {
-        fetch(`https://api.giphy.com/v1/gifs/translate?api_key=F6FOppZOtltQDEMqetJa63OW2ptQcrDE&s=${gifSearch}`, {mode: 'cors'})
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(response) {
-            img.src = response.data.images.original.url;
-            weatherText.innerText = gifSearch;
-        });
-    })
+async function newGIF() {
+    let gifSearch = "try again";
+
+    try {
+        const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${weatherLocation}?key=MBK26J9HC5S79E2LG3RTL4R2W`, {mode: 'cors'});
+        const weatherData = await response.json();
+        gifSearch = await weatherData.days[0].conditions;
+    } catch (error) {
+        console.error('Failed to fetch weather data. Using default search term:', error);
+    }
+    
+    const gifResponse = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=F6FOppZOtltQDEMqetJa63OW2ptQcrDE&s=${gifSearch}`, {mode: 'cors'});
+    const gif = await gifResponse.json();
+    gifGIF = await gif.data.images.original.url;
+    img.src = await gifGIF;
+    weatherText.innerText = gifSearch;
 }
 
 newGIF();
