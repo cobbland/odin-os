@@ -3,10 +3,13 @@ import { Weather } from "./weather";
 
 const lessonWindow = new Window('window-2');
 lessonWindow.setWindowTitle("Today's Lesson");
-lessonWindow.setWindowContent(`
-    <p>hi</p>
-`);
 
 const myWeather = new Weather('lynchburg,va');
 
-console.log(myWeather.getWeatherJSON().then((result) => result.json()));
+async function weatherToday() {
+    const weatherJSON = await myWeather.getWeatherJSON();
+    const todaysWeather = weatherJSON.days[0].conditions;
+    lessonWindow.setWindowContent(todaysWeather);
+}
+
+weatherToday();
