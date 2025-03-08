@@ -22,7 +22,6 @@ class Weather {
         }
         return weather;
     }
-
 }
 
 export { Weather };
