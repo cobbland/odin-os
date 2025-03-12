@@ -3,9 +3,33 @@ import { Window } from "./window";
 const lessonWindow = new Window('window-2');
 lessonWindow.setWindowTitle("Today's Lesson");
 
-
+function binarySearch(
+    search, arr, start = 0, end = arr.length - 1, mid = Math.round((start + end) / 2)
+) {
+    console.log(`arr: ${arr}, start: ${start}, end: ${end}, mid: ${mid}`)
+    if (start > end) {
+        console.log("It ain't here.");
+        return;
+    } else if (arr[mid] === search) {
+        console.log("It's here!");
+        return arr[mid];
+    } 
+    if (arr[mid] > search) {
+        console.log("It's lower.");
+        const newEnd = mid - 1;
+        const newMid = Math.round((start + newEnd) / 2);
+        binarySearch(search, arr, start, newEnd, newMid);
+    } else if (arr[mid] < search) {
+        console.log("It's higher.");
+        const newStart = mid + 1;
+        const newMid = Math.round((newStart + end) / 2);
+        binarySearch(search, arr, newStart, end, newMid);
+    }
+    // console.log("The end.");
+}
 
 lessonWindow.setWindowContent("Hi")
+console.log(binarySearch(-1, [1, 2, 3, 4, 5, 8, 12, 15, 21]));
 
 /*
 Big O Notations are:
