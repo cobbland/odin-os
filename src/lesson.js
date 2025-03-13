@@ -31,6 +31,27 @@ function binarySearch(
 lessonWindow.setWindowContent("Hi")
 console.log(binarySearch(-1, [1, 2, 3, 4, 5, 8, 12, 15, 21]));
 
+
+
+
+function stringToNumber(string) {
+    let hashCode = 0;
+    const primeNumber = 31;
+    for (let i = 0; i < string.length; i++) {
+        hashCode = primeNumber * hashCode + string.charCodeAt(i);
+    }
+    return hashCode;
+}
+
+function hash(name, surname) {
+    return stringToNumber(name) + stringToNumber(surname);
+}
+
+let jacobDensfordHash = hash("jacob", "densford");
+console.log(jacobDensfordHash);
+
+
+
 /*
 Big O Notations are:
     O(1)       - Constant Complexity
