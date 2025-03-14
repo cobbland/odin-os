@@ -1,7 +1,7 @@
-import { Window } from "./window";
+// import { Window } from "./window.js";
 
-const lessonWindow = new Window('window-2');
-lessonWindow.setWindowTitle("Today's Lesson");
+// const lessonWindow = new Window('window-2');
+// lessonWindow.setWindowTitle("Today's Lesson");
 
 function binarySearch(
     search, arr, start = 0, end = arr.length - 1, mid = Math.round((start + end) / 2)
@@ -28,8 +28,20 @@ function binarySearch(
     // console.log("The end.");
 }
 
-lessonWindow.setWindowContent("Hi")
+// lessonWindow.setWindowContent("Hi")
 console.log(binarySearch(-1, [1, 2, 3, 4, 5, 8, 12, 15, 21]));
+
+/*
+Big O Notations are:
+    O(1)       - Constant Complexity
+    O(log N)   - Logarithmic Complexity
+    O(N)       - Linear Complexity
+    O(N log N) - N x log N Complexity
+    O(n²)      - Quadratic Complexity
+    O(n³)      - Cubic Complexity
+    O(2ⁿ)      - Exponential Complexity
+    O(N!)      - Factorial Complexity
+*/
 
 
 
@@ -52,14 +64,3 @@ console.log(jacobDensfordHash);
 
 
 
-/*
-Big O Notations are:
-    O(1)       - Constant Complexity
-    O(log N)   - Logarithmic Complexity
-    O(N)       - Linear Complexity
-    O(N log N) - N x log N Complexity
-    O(n²)      - Quadratic Complexity
-    O(n³)      - Cubic Complexity
-    O(2ⁿ)      - Exponential Complexity
-    O(N!)      - Factorial Complexity
-*/
